@@ -1,6 +1,7 @@
 from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from django.template.loader import render_to_string
 
 # Create your views here.
 
@@ -16,7 +17,8 @@ days_week = {
 
 
 def index(request):
-    return HttpResponse("It's an index page!")
+    # return HttpResponse("It's an index page!")
+    return HttpResponse(render_to_string('challenges/challenge.html'))
 
 
 def days(request, day):
