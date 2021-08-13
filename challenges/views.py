@@ -22,7 +22,11 @@ def index(request):
 
 
 def days(request, day):
-    return HttpResponse(days_week.get(day))
+    # return HttpResponse(days_week.get(day))
+    context = {
+        "data": days_week.get(day)
+    }
+    return render(request, "challenges/days.html", context)
 
 
 def fun(request, string):
