@@ -17,12 +17,10 @@ days_week = {
 
 
 def index(request):
-    # return HttpResponse("It's an index page!")
-    return HttpResponse(render_to_string('challenges/challenge.html'))
+    return HttpResponse(render_to_string('challenges/index.html'))
 
 
 def days(request, day):
-    # return HttpResponse(days_week.get(day))
     context = {
         "data": days_week.get(day)
     }
@@ -37,28 +35,16 @@ def fun(request, string):
 
 def fun_by_number(request, num):
     return HttpResponseRedirect(reverse("fun", args=[f'{num}redirect']))
-    # return HttpResponseRedirect(f'/challenges/{num}redirect')
-    # return HttpResponse(f'It\'s a number: {num}')
 
 
 def days_of_week(request):
     days_name = list(days_week.keys())
-    items_list = ""
-    for day in days_name:
-        path_url = reverse("days_of_the_week", args=[day])
-        items_list += f'<li> <a href={path_url}> {day} </a> </li>'
-    content = """
-        <ul>
-            <li>
-                <a href='/challenges/saturday'> saturday </a>
-                <a href='/challenges/sunday'> sunday </a>
-                <a href='/challenges/monday'> monday </a>
-                <a href='/challenges/tuesday'> tuesday </a>
-                <a href='/challenges/wednesday'> wednesday </a>
-                <a href='/challenges/thursday'> thursday </a>
-                <a href='/challenges/friday'> friday </a>
-            </li> 
-        </ul>
-    """
 
-    return HttpResponse(items_list)
+    addresses = [reverse("days_of_the_week", args=[day_name]) for day_name in days_name]
+    addresses.reverse()
+    context = {
+        'days': days_name,
+        'addresses': addresses
+    }
+    print(addresses)
+    return render(request, "challenges/listDays.html", context)

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List of the Days</title>
+</head>
+<body>
+    {% for day in days %}
+        <ul>
+            <a href={{ addresses.pop }}> {{ day }} </a>
+        </ul>
+    {% endfor %}
+
+</body>
+</html>
