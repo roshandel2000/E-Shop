@@ -12,7 +12,8 @@ days_week = {
     "tuesday": "Today is Tuesday",
     "wednesday": "Today is Wednesday",
     "thursday": "Today is Thursday",
-    "friday": "Today is Friday"
+    "friday": "Today is Friday",
+    "holiday": None
 }
 
 

@@ -6,6 +6,12 @@
 </head>
 <body>
     <h1>Days</h1>
-    <h2>{{ data|title }}</h2>
+    {% if day is not None  %}
+        <h2>{{ data|title }}</h2>
+    {% else %}
+        <p> there is not any data</p>
+    {% endif %}
+
+
 </body>
 </html>

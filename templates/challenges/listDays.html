@@ -7,7 +7,9 @@
 <body>
     {% for day in days %}
         <ul>
-            <a href={{ addresses.pop }}> {{ day }} </a>
+            <li>
+                <a href="{% url 'days_of_the_week' day %}"> {{ day|title }} </a>
+            </li>
         </ul>
     {% endfor %}
 
