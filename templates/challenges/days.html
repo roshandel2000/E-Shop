@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>days</title>
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block page_title %}
+    days
+{% endblock %}
+
+{% block content %}
     <h1>Days</h1>
-    {% if day is not None  %}
+    {% if data is not None  %}
         <h2>{{ data|title }}</h2>
     {% else %}
         <p> there is not any data</p>
     {% endif %}
-
-
-</body>
-</html>
+{% endblock %}

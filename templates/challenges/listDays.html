@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>List of the Days</title>
-</head>
-<body>
+{% extends "layout.html" %}
+
+{% block page_title %}
+    List of the Days
+{% endblock %}
+
+{% block content %}
     {% for day in days %}
         <ul>
             <li>
@@ -12,6 +12,4 @@
             </li>
         </ul>
     {% endfor %}
-
-</body>
-</html>
+{% endblock %}
