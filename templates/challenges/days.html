@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+    {% include 'challenges/section/headers.html' with active_page="days list" %}
     <h1>Days</h1>
     {% if data is not None  %}
         <h2>{{ data|title }}</h2>
