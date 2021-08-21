@@ -1,4 +1,4 @@
-from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseNotFound, HttpResponseRedirect, Http404
 from django.shortcuts import render
 from django.urls import reverse
 from django.template.loader import render_to_string
@@ -22,9 +22,14 @@ def index(request):
 
 
 def days(request, day):
-    context = {
-        "data": days_week.get(day)
-    }
+    if days_week.get(day) is not None:
+        context = {
+            "data": days_week.get(day)
+        }
+    else:
+        # response = render_to_string('404.html')
+        # return HttpResponseNotFound(response)
+        raise Http404()
     return render(request, "challenges/days.html", context)
 
 
